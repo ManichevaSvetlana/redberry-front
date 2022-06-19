@@ -1,3 +1,14 @@
 {
-  "message": "en"
+  "message": "en",
+
+  "appname" : "Redberry",
+  "statistics.name" : "Covid19 Statistics",
+  "statistics.description" : "Covid19 Statistics in Real Time",
+  "country" : "Country Name",
+  "confirmed" : "Confirmed",
+  "recovered" : "Recovered",
+  "deaths" : "Deaths",
+  "search.placeholder" : "Type something...",
+  "search.button" : "Search",
+  "search.description" : "Search for any country <br> by its name or code"
 }

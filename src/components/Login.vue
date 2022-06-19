@@ -41,7 +41,7 @@
         </div>
 
         <button type="submit" class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2" :disabled="loading">Login</button>
-        <router-link to="/register"  class="text-sm ml-2 text-gray-600 hover:text-blue-500 cursor-pointer">Register Now</router-link>
+        <router-link to="/register" class="text-sm ml-2 text-gray-600 hover:text-blue-500 cursor-pointer">Register Now</router-link>
       </Form>
     </div>
   </div>

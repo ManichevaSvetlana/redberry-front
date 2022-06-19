@@ -66,7 +66,6 @@ export const user = {
             localStorage.setItem('token', token)
         },
         loginSuccess(state, user) {
-            console.log('success', user, user.token);
             this.commit('user/token', user.token);
 
             router.push({name: 'home'});

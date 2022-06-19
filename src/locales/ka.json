@@ -1,3 +1,14 @@
 {
-  "message": "ka"
+  "message": "ka",
+
+  "appname" : "Redberry",
+  "statistics.name" : "Covid 19-ის სტატისტიკა",
+  "statistics.description" : "Covid 19-ის სტატისტიკა რეალურ დროში",
+  "country" : "ვეყნის სახელი",
+  "confirmed" : "დადასტურებული",
+  "recovered" : "აღდგენილი",
+  "deaths" : "სიკვდილი",
+  "search.placeholder" : "აკრიფეთ რაღაც...",
+  "search.button" : "ძებნა",
+  "search.description" : "მოძებნეთ ნებისმიერი ქვეყანა <br> მისი სახელით ან კოდით"
 }

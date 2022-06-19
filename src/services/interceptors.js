@@ -1,4 +1,5 @@
 import axiosInstance from './api';
+import i18n from "@/i18n";
 
 const setup = (store) => {
     axiosInstance.interceptors.request.use(
@@ -6,6 +7,7 @@ const setup = (store) => {
             const token = store.state.user.token;
             if (token) {
                 config.headers['Authorization'] = 'Bearer ' + token;
+                config.headers['Accept-Language'] = i18n.global.locale;
             }
             return config;
         },
