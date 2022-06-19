@@ -10,5 +10,6 @@
   "deaths" : "Deaths",
   "search.placeholder" : "Type something...",
   "search.button" : "Search",
-  "search.description" : "Search for any country <br> by its name or code"
+  "search.description" : "Search for any country <br> by its name or code",
+  "close" : "Close"
 }

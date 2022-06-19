@@ -2,7 +2,7 @@
   <header class="text-gray-700 body-font border-b border-gray-200">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <router-link to="/" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="" target="_blank">
-        <span class="ml-3 text-xl">{{ $t('appname') }}</span>
+        <span class="text-xl">{{ $t('appname') }}</span>
       </router-link>
       <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
         <a class="mr-5 hover:text-gray-900 cursor-pointer" @click="changeLanguage">{{ $i18n.locale == 'en' ? 'ქართული' : 'English'}}</a>
@@ -74,7 +74,7 @@
                     <p class="text-gray-900 whitespace-no-wrap">{{ resource.death ?? 0  }}</p>
                   </td>
                   <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-right">
-                    <button type="button" class="inline-block text-gray-500 hover:text-gray-700">
+                    <button type="button" class="inline-block text-gray-500 hover:text-gray-700 cursor-pointer" @click="getResource(resource.code)">
                       <svg class="inline-block h-6 w-6 fill-current" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12.01 20c-5.065 0-9.586-4.211-12.01-8.424 2.418-4.103 6.943-7.576 12.01-7.576 5.135 0 9.635 3.453 11.999 7.564-2.241 4.43-6.726 8.436-11.999 8.436zm-10.842-8.416c.843 1.331 5.018 7.416 10.842 7.416 6.305 0 10.112-6.103 10.851-7.405-.772-1.198-4.606-6.595-10.851-6.595-6.116 0-10.025 5.355-10.842 6.584zm10.832-4.584c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5zm0 1c2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4 1.792-4 4-4z"/></svg>
                     </button>
                   </td>
@@ -94,16 +94,18 @@
         </div>
       </div>
     </div>
+    <modal :resource="resource" @close="showModal = false" v-if="showModal"></modal>
   </section>
 </template>
 
 <script>
 import arrow from './parts/Arrow';
+import modal from './parts/CountryCard';
 
 export default {
   name: 'HomeComponent',
   components: {
-    arrow
+    arrow, modal
   },
   computed: {
     user() {
@@ -123,7 +125,8 @@ export default {
         string: '',
         order: 'asc',
         sort: 'country'
-      }
+      },
+      showModal: false
     };
   },
   created() {
@@ -131,6 +134,11 @@ export default {
     this.search('getData');
   },
   methods: {
+    getResource(code)
+    {
+      this.$store.dispatch('resource/getData', code);
+      this.showModal = true;
+    },
     setFilter(field)
     {
       this.filter.order = this.filter.sort == field ? (this.filter.order == 'asc' ? 'desc' : 'asc') : 'asc';

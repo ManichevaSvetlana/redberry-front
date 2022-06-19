@@ -6,7 +6,7 @@ export const resource = {
         code: null,
         name_local: null,
         confirmed: null,
-        deaths: null,
+        death: null,
         recovered: null,
     },
     actions: {
@@ -20,8 +20,9 @@ export const resource = {
         data(state, data) {
             state.name_local = data.name_local;
             state.confirmed = data.confirmed;
-            state.deaths = data.deaths;
+            state.death = data.death;
             state.recovered = data.recovered;
+            state.code = data.code;
         }
     }
 };
