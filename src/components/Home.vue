@@ -1,8 +1,13 @@
 <template>
   <div class="container">
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div class="locale-switcher">🌐 {{$i18n.locale}}</div>
+    <select v-model="$i18n.locale">
+      <option value="en">English</option>
+      <option value="ka">Georgian</option>
+    </select>
+
+    {{ $t('message') }} <br><br>
+
     {{ user.name }} <br>
     {{ user.email }} <br>
     {{ user.token }}
