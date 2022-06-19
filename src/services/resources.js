@@ -11,6 +11,12 @@ class Resources {
         });
     }
 
+    fetchTotal() {
+        return api.get('/total').then((response) => {
+            return response.data;
+        });
+    }
+
     fetchResource(code) {
         return api.get('/countries/' + code).then((response) => {
             return response.data;

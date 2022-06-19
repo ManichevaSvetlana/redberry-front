@@ -12,4 +12,7 @@
   "search.button" : "ძებნა",
   "search.description" : "მოძებნეთ ნებისმიერი ქვეყანა <br> მისი სახელით ან კოდით",
   "close" : "დახურვა",
+  "total.death" : "სულ სიკვდილიანობა",
+  "total.confirmed" : "სულ დადასტურებულია",
+  "total.recovered" : "სულ აღდგენილია"
 }

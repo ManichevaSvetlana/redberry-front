@@ -14,11 +14,20 @@
       </button>
     </div>
   </header>
+
+
   <section class="text-gray-700 body-font border-t border-gray-200">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-20">
         <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">{{ $t('statistics.name') }}</h2>
         <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">{{ $t('statistics.description') }}</h1>
+      </div>
+
+
+      <div class="flex flex-wrap mb-10">
+        <total :resource="resources.totalInformation.recovered" :name="$t('total.recovered')"></total>
+        <total :resource="resources.totalInformation.confirmed" :name="$t('total.confirmed')"></total>
+        <total :resource="resources.totalInformation.death" :name="$t('total.death')"></total>
       </div>
 
       <div class="flex flex-wrap">
@@ -101,11 +110,12 @@
 <script>
 import arrow from './parts/Arrow';
 import modal from './parts/CountryCard';
+import total from './parts/TotalCard';
 
 export default {
   name: 'HomeComponent',
   components: {
-    arrow, modal
+    arrow, modal, total
   },
   computed: {
     user() {
@@ -126,12 +136,13 @@ export default {
         order: 'asc',
         sort: 'country'
       },
-      showModal: false
+      showModal: false,
     };
   },
   created() {
     // Get the countries data with statistics
     this.search('getData');
+    this.$store.dispatch('resources/getTotalInformation');
   },
   methods: {
     getResource(code)

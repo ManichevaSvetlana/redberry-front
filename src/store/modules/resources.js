@@ -5,9 +5,16 @@ export const resources = {
     state: {
         array: [],
         lastPage: null,
-        total: null
+        total: null,
+
+        totalInformation: {death: 0, confirmed: 0, recovered: 0}
     },
     actions: {
+        getTotalInformation({commit}) {
+            ResourceService.fetchTotal().then(data => {
+                commit('total', data);
+            })
+        },
         getData({commit}, {searchString}) {
             ResourceService.fetchResources(1, searchString).then(data => {
                 commit('data', data.data);
@@ -22,6 +29,9 @@ export const resources = {
         },
     },
     mutations: {
+        total(state, data) {
+            state.totalInformation = data;
+        },
         data(state, array) {
             state.array = array;
         },
