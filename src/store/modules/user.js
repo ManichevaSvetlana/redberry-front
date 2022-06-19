@@ -39,9 +39,8 @@ export const user = {
             );
         },
         logout({commit}) {
-            AuthService.logout().then(response => {
-                commit('logout', response);
-            });
+            commit('logout');
+            AuthService.logout();
         },
         register({commit,dispatch}, user) {
             return AuthService.register(user).then(
